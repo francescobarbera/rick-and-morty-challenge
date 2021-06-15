@@ -1,0 +1,6 @@
+{
+    "hooks": {
+        "pre-commit": "NODE_ENV=CI yarn lint && yarn test",
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+}
