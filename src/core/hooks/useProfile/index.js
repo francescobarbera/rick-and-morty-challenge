@@ -10,7 +10,6 @@ const useProfiles = (originUrl, locationUrl, episodesUrls, requestId) =>
       const location = await axios.get(locationUrl);
       const episodesRequests = episodesUrls.map((url) => axios.get(url));
       const episodes = await Promise.allSettled(episodesRequests);
-
       return {
         origin: origin.data,
         location: location.data,

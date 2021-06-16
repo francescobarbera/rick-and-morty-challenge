@@ -6,7 +6,6 @@ import useProfile from "../../../core/hooks/useProfile";
 import { AttributeText, Container, Name, Img, ImgContainer } from "./styled";
 
 const CharacterCard = ({
-  id,
   name,
   status,
   species,
@@ -15,20 +14,17 @@ const CharacterCard = ({
   image,
   origin,
   location,
-  episode,
+  episodes,
 }) => {
   const [requestId, setRequestId] = useState("");
   const [areDetailsOpen, toggleDetails] = useState(false);
-  const profile = useProfile(origin.url, location.url, episode, requestId);
-  console.log("profile", profile);
+  const profile = useProfile(origin.url, location.url, episodes, requestId);
 
   return (
     <Container>
-      {!areDetailsOpen ? (
-        <ImgContainer>
-          <Img data-testid={"profile-image"} src={image}></Img>
-        </ImgContainer>
-      ) : null}
+      <ImgContainer>
+        <Img data-testid={"profile-image"} src={image}></Img>
+      </ImgContainer>
       <Name>{name}</Name>
       <AttributeText label={"status"} value={status} />
       <AttributeText label={"species"} value={species} />
@@ -101,7 +97,7 @@ CharacterCard.propTypes = {
   location: PropTypes.shape({
     url: PropTypes.string,
   }),
-  episode: PropTypes.arrayOf(PropTypes.string),
+  episodes: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default CharacterCard;
