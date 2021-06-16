@@ -10,7 +10,8 @@
     "lint": "npm-run-all -p lint:*",
     "start:mock-server": "mock-server --watch --delay 1000",
     "start:dev-server": "react-scripts start",
-    "start": "npm-run-all -p start:*"
+    "start": "npm-run-all -p start:*",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
